@@ -26,7 +26,7 @@ const RecipeContext = (props) => {
     image: "https://centslessdeals.com/wp-content/uploads/2022/09/Skillet-Pasta-With-Ground-Beef-TheShortcutKitchen-9-1024x1536.jpg",
     chef:"bismah",
     category:"Dinner",
-    desc:" some random dessome random dessome random dessome random dessome random dessome random dessome random dessome random dessome random dessome random des"
+    desc:" essome random dessome random dessome random dessome random des"
   }
  ]);
 
