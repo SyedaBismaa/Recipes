@@ -42,81 +42,93 @@ const SubmitHandler = (recipe) => {
   
    
   return recipe ? 
-   <div className='w-full flex'>
-    <div className="left w-1/2 p-2">
-     <h1 className='text-4xl font-black mb-2'>{recipe.title}</h1>
-     <img className='object-cover w-1/3 rounded pt-2' src={recipe.image} alt="" />
-     <small className="px-2  text-red-300 text-2xl">{recipe.chef}</small>
-    <p className="px-2 pb-3">{recipe.desc} </p>
+  <div className="w-full max-h-screen overflow-y-auto">
+  <div className="flex flex-col md:flex-row bg-white/30 backdrop-blur-md rounded-lg shadow-lg m-4">
 
-     <p className="px-2 pb-3"> {recipe.ingrediants}</p>
-     <p className="px-2 pb-3"> {recipe.instractions}</p>
-
-     <p>{recipe.category}</p>
-
+    <div className="left w-full md:w-1/2 p-4 space-y-3">
+      <h1 className="text-3xl font-bold text-black">{recipe.title}</h1>
+      <img
+        className="object-cover position-center h-48 w-full md:w-[70%] rounded-lg"
+        src={recipe.image}
+        alt={recipe.title}
+      />
+      <p className="text-base text-red-500 font-medium">{recipe.chef}</p>
+      <p className="text-xl text-black">{recipe.desc}</p>
+      <p className="text-xl text-black">
+        <span className="font-semibold">Ingredients:</span> {recipe.ingrediants}
+      </p>
+      <p className="text-xl text-black">
+        <span className="font-semibold">Instructions:</span> {recipe.instractions}
+      </p>
+      <p className="text-xl text-black">
+        <span className="font-semibold">Category:</span> {recipe.category}
+      </p>
     </div>
 
-
-        <form className='w-1/2 p-2' onSubmit={handleSubmit(SubmitHandler)}>
+    <form
+      className="w-full md:w-1/2 p-4 space-y-3 text-xl"
+      onSubmit={handleSubmit(SubmitHandler)}
+    >
       <input
-        className=' block border-b outline-0 mb-1 p-2 w-full '
+        className="w-full border-b border-gray-300 focus:border-black outline-none p-2 bg-transparent text-black placeholder-gray-500 text-xl transition-all duration-300"
         {...register("image")}
         type="url"
-        placeholder='Enter image url'
+        placeholder="Enter image URL"
       />
-      
       <input
-        className=' block border-b outline-0 mb-1 p-2  w-full'
+        className="w-full border-b border-gray-300 focus:border-black outline-none p-2 bg-transparent text-black placeholder-gray-500 text-xl transition-all duration-300"
         {...register("title")}
         type="text"
-        placeholder='Recipe Title'
+        placeholder="Recipe Title"
       />
-      
       <input
-        className=' block border-b outline-0 mb-1 p-2 '
+        className="w-full border-b border-gray-300 focus:border-black outline-none p-2 bg-transparent text-black placeholder-gray-500 text-xl transition-all duration-300"
         {...register("chef")}
         type="text"
-        placeholder='Chef name'
+        placeholder="Chef name"
       />
-
       <textarea
-        className=' block border-b outline-0 mb-1 p-2  w-full'
+        className="w-full border-b border-gray-300 focus:border-black outline-none p-2 bg-transparent text-black placeholder-gray-500 text-xl transition-all duration-300 resize-none h-20"
         {...register("desc")}
-        placeholder='Description '
+        placeholder="Description"
       ></textarea>
-
       <textarea
-        className=' block border-b outline-0 mb-1 p-2 w-full '
+        className="w-full border-b border-gray-300 focus:border-black outline-none p-2 bg-transparent text-black placeholder-gray-500 text-xl transition-all duration-300 resize-none h-20"
         {...register("ingrediants")}
-        placeholder='Write your recipes here separated by comma '
+        placeholder="Write your ingredients here, separated by commas"
       ></textarea>
-
       <textarea
-        className=' block border-b outline-0 mb-1 p-2 w-full '
+        className="w-full border-b border-gray-300 focus:border-black outline-none p-2 bg-transparent text-black placeholder-gray-500 text-xl transition-all duration-300 resize-none h-20"
         {...register("instractions")}
-        placeholder='Write your Instructions here separated by comma '
+        placeholder="Write your instructions here, separated by commas"
       ></textarea>
-
-
       <select
-        className=' block border-b outline-0 mb-1 p-2 text-black  '
+        className="w-full border-b border-gray-300 focus:border-black outline-none p-2 bg-transparent text-black text-xl transition-all duration-300"
         {...register("category")}
       >
         <option value="Breakfast">Breakfast</option>
-        <option value="Lunch">lunch</option>
-        <option value="Supper">supper</option>
+        <option value="Lunch">Lunch</option>
+        <option value="Supper">Supper</option>
         <option value="Dinner">Dinner</option>
-
-
       </select>
-
-      <button className='px-4 py-2 bg-blue-900 rounded mr-2  mt-5'>Update Recipee</button>
-      <button onClick={Deletehandler} className='px-4 py-2 bg-red-900 rounded  mr-5 mt-5'>Delete Recipee</button>
-
+      <div className="flex justify-center space-x-3 pt-2">
+        <button
+          type="submit"
+          className="px-7 py-2 bg-black text-white rounded hover:bg-gray-800 text-xl transition-all duration-300"
+        >
+          Update
+        </button>
+        <button
+          type="button"
+          onClick={Deletehandler}
+          className="px-7 py-2 bg-red-600 text-white rounded hover:bg-red-700 text-xl transition-all duration-300"
+        >
+          Delete
+        </button>
+      </div>
     </form>
-
-
-  </div> : "Loading..."
+  </div>
+</div>: "Loading..."
 }
 
 export default SingleRecipe

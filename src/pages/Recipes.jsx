@@ -11,7 +11,7 @@ const Recipes = () => {
   ))
 
   return (
-    <div className='flex flex-wrap'>
+    <div className='flex flex-wrap gap-[2rem] text-black'>
       { data.length > 0 ? renderrecipe : "No Recipe Found"}</div>
   )
 }
