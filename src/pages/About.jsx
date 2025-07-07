@@ -86,7 +86,7 @@ const animateText = (element) => {
 
       <div ref={imgRef} className="absolute top-10 left-10 sm:left-20 z-10">
         <img
-          className="w-19 h-19 sm:w-24 sm:h-24 rounded-full shadow-lg hover:scale-120 transition-transform duration-300"
+          className="w-19 h-20 sm:w-24 sm:h-24 rounded-full shadow-lg hover:scale-120 transition-transform duration-300"
           src="Ramen.jpg"
           alt="Spicy Ramen"
         />
